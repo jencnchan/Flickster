@@ -2,13 +2,13 @@ package com.androidpractice.jennifer.flickster.adapters;
 
 import android.content.Context;
 import android.content.res.Configuration;
-
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.androidpractice.jennifer.flickster.R;
@@ -58,11 +58,36 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
         viewHolder.title.setText(movie.getOriginalTitle());
         viewHolder.overview.setText(movie.getOverView());
 
+        // Show progress bar
+        final ProgressBar progressBar = (ProgressBar) convertView.findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
         int orientation = getContext().getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-            Picasso.with(getContext()).load(movie.getPosterPath()).into(viewHolder.image);
+            Picasso.with(getContext()).load(movie.getPosterPath()).into(viewHolder.image, new com.squareup.picasso.Callback() {
+                @Override
+                public void onSuccess() {
+                    if (progressBar != null) {
+                        progressBar.setVisibility(View.GONE);
+                    }
+                }
+
+                @Override
+                public void onError() {
+                }
+            });
         } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            Picasso.with(getContext()).load(movie.getBackdropPath()).into(viewHolder.image);
+            Picasso.with(getContext()).load(movie.getBackdropPath()).resize(700, 0).into(viewHolder.image, new com.squareup.picasso.Callback() {
+                @Override
+                public void onSuccess() {
+                    if (progressBar != null) {
+                        progressBar.setVisibility(View.GONE);
+                    }
+                }
+
+                @Override
+                public void onError() {
+                }
+            });
         }
 
         // Return the completed view to render on screen

@@ -1,7 +1,7 @@
 package com.androidpractice.jennifer.flickster;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
 
@@ -40,10 +40,8 @@ public class MovieActivity extends AppCompatActivity {
         client.get(url, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                JSONArray movieJsonResults = null;
-
                 try {
-                    movieJsonResults = response.getJSONArray("results");
+                    JSONArray movieJsonResults = response.getJSONArray("results");
                     movies.addAll(Movie.fromJSONArray(movieJsonResults));
                     movieAdapter.notifyDataSetChanged();
                     Log.d("DEBUG", movies.toString());
