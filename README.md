@@ -11,21 +11,21 @@ Time spent: **5** hours spent in total
 The following **required** functionality is completed:
 
 * [X] User can **scroll through current movies** from the Movie Database API
-* [X] Layout is optimized with the [ViewHolder](http://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern) pattern.
+* [X] Layout is optimized with the ViewHolder pattern.
 * [X] For each movie displayed, user can see the following details:
   * [X] Title, Poster Image, Overview (Portrait mode)
   * [X] Title, Backdrop Image, Overview (Landscape mode)
 
 The following **optional** features are implemented:
 
-* [X] Display a nice default [placeholder graphic](http://guides.codepath.com/android/Displaying-Images-with-the-Picasso-Library#configuring-picasso) for each image during loading.
-* [X] Improved the user interface through styling and coloring.
+* [X] Displayed a default placeholder graphic for each image during loading
+* [X] Improved the user interface through styling and coloring
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-![flicksterapp gif walkthrough - first submission](https://cloud.githubusercontent.com/assets/24812963/23103009/9629415e-f6ee-11e6-8fc9-ac8754a1ea71.gif)
+![flicksterapp gif walkthrough](https://cloud.githubusercontent.com/assets/24812963/23104954/6cd8e506-f712-11e6-8891-693a8e054a7a.gif)
 
 ## Open-source libraries used
 
